@@ -4,20 +4,21 @@ const Trip = require('./Trips');
 
 
 Traveller.belongsToMany(Location, {
-    through: Trip,
-    foreignKey: 'traveller_id'
+    through: {
+    model:Trip,
+    foreignKey: 'traveller_id',
+    unique:false
 },
-{
-    unique: false
+    as: 'traveller_spot'
 })
 
 Location.belongsToMany(Traveller,{
-    through: Trip,
-    foreignKey: 'location_id'
-   
-},
-{
-    unique: false
+    through:{
+        model: Trip,
+        foreignKey: 'location_id',
+        unique:false
+    },
+    as: 'location_spot',
 })
 
 //obj represents all the tables in the db 
