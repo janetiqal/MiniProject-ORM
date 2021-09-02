@@ -14,6 +14,10 @@ Location.init(
         location_name: {
             type: DataTypes.STRING,
             allowNull: false,
+            //only allows letters
+            validate:{
+                is:["^[a-z]+$",'i']
+            }
         }
     },
     {

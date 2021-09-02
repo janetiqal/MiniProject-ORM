@@ -5,7 +5,7 @@ const Trip = require('./Trips');
 
 Traveller.belongsToMany(Location, {
     through: {
-    model:Trip,
+    model: Trip,
     foreignKey: 'traveller_id',
     unique:false
 },
