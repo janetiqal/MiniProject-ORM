@@ -15,18 +15,37 @@ Traveller.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            //only allows letters 
-            validate:{
-                is:["^[a-z]+$",'i']
-            }
+            //only allows letters doesnt allow spaces between first and last name
+            //write a regex for this
+            // validate:{
+            //     isAlpha:true
+            // }
         },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            // prevents duplicate email addresses in DB
+            unique: true,
             validate:{
                 isEmail: true,
             }
-        }
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate:{
+              len: [8]
+            }
+          },
+          username: {
+            type: DataTypes.STRING,
+            // only can have numbers and letter
+            validate: {
+              isAlphanumeric: true,
+            },
+            unique: true,
+            allowNull: false,
+          },
     },
     {
         sequelize,
