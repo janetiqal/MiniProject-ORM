@@ -14,11 +14,19 @@ Trip.init(
         trip_budget: {
             type: DataTypes.INTEGER,
             allowNull: true,
+            //only numbers in this field
+            validate:{
+                isNumeric:true
+            }
         },
         traveller_amount: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: 1
+            defaultValue: 1,
+             //only numbers in this field
+             validate:{
+                isNumeric:true
+            }
         },
         traveller_id: {
             type: DataTypes.INTEGER,

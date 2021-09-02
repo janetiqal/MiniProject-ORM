@@ -15,10 +15,17 @@ Traveller.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            //only allows letters 
+            validate:{
+                is:["^[a-z]+$",'i']
+            }
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate:{
+                isEmail: true,
+            }
         }
     },
     {

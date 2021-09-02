@@ -16,7 +16,7 @@ Location.init(
             allowNull: false,
             //only allows letters
             validate:{
-                is:["^[a-z]+$",'i']
+                is:/^[a-z]+$/i
             }
         }
     },
